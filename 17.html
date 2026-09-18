@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+         v3 = "123"
+        console.log(v3+5)
+        console.log(v3+"5")
+        console.log(v3*5)
+        console.log(Number(v3)+5)
+        console.log(parseFloat("1.35"))
+
+        v4=123
+        console.log(v4+5)
+        console.log(v4+"5")
+        console.log(v4*5)
+        console.log(String(v4)+5)
+        console.log(5%3)
+        console.log(5/3)
+        //console.log(5++) 
+        //console.log(++5)
+        console.log(+5)
+        console.log(-5)
+
+        if(v4>100){
+            console.log("100보다 크다.")
+        } else{
+            console.log("100보다 크지 않다.")
+        }
+        
+        if(v4>100){
+            console.log("100보다 크다.")
+        } else if(v4 < 50){
+            console.log("50보다 작다")
+        } else{
+            console.log("50보다 같거나 크고 100보다 같거나 작다.")
+        }
+
+        if(v4>100 ){
+            console.log("100보다 크다.")
+        }
+
+        if(v4<50) {
+            console.log("50보다 작다.")
+        }
+
+        if(!(v4>100) && !(v4<50)) {
+            console.log("50보다 같거나 크고 100보다 같거나 작다.")
+        }
+
+        //반복문
+        arr1 = "apple"
+        arr2 = "banana"
+        arr3 = "orange"
+
+    arr = ["apple","banana","orange"]
+    console.log(arr[0]);
+    console.log(arr[1]);
+    console.log(arr[2]);
+
+    var arr = ["apple","banana"];
+    for(var i=0; i<arr.length; i++){
+        console.log(arr[i]);
+    }
+    for(var i in arr){
+        console.log(arr[i]);
+    }
+
+    var obj = {k1:"seoul"
+            ,k2 : "deajeon"
+            , key : "이거이거"
+            , k3 : 100
+            , k4 : ["apple","banana"]
+        };
+
+        console.log(obj);
+    console.log(obj.key);
+    console.log(obj["key"]);
+    
+    var v1 = "k1";
+    console.log(v1);
+    console.log(obj[v1]);
+
+    console.log(obj["k1"]);
+    
+    console.log(obj.k1);
+
+    /*
+     속성명을 알때, 하나만 꺼내서 보고 싶을때 : .dnject 사용할 때
+    속성명을 모를 때 사용 - 속성명을 알아와서 v1변수에 넣고 - object[변수명]
+    속성들 다 꺼내고 싶을때, 다 보고 싶을때 - 반복문을 사용 하고 싶을때 - object["속성명"]
+    */
+
+    for(var key in obj){
+        console.log(key);
+        console.log(typeof(key));
+        //var key = "k1";
+        //var key = "k2";
+        console.log(obj[key]);
+        //console.log(obj["k1"]);
+    }
+
+         //문자열 함수들
+        str_length = "abc,def"
+        console.log(str_length.length);
+        console.log(str_length.split(","));
+        //str_length.substring(2,4) 결과물
+        console.log(str_length.substring(2,4));
+        console.log(str_length.split(",",1));
+        console.log(str_length.substring(3));
+
+        //숫자 Math 함수(메소드)들
+       console.log(Math.max(2,6,3,9,4))
+       console.log(Math.min(2,6,3,9,4))
+       console.log(Math.abs(-0.34))
+       console.log(Math.random(0.5))
+       console.log(Math.round(2.3))
+       console.log(Math.floor(-5.1))
+       console.log(Math.ceil(0.01))
+
+
+    </script>
+</body>
+</html>

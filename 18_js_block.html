@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        v1 = 10;
+        v2 = 20;
+
+
+        v3 = {
+            k1: 30,
+            k2: 31
+        }
+
+        for( k in v3 ) {
+            console.log(k)
+        }
+
+        var arr = ["apple","banana", function(){ console.log("배열의2번index에함수입니다.");}];
+
+        for (var i in arr) {
+            console.log(arr[i])
+            if(typeof( arr[i]) == "function") {
+                arr[i]();
+            } 
+            else {
+                console.log(arr[i]);
+            }
+        }
+       
+        
+        if ( v4 > 100 ) console.log("100보다 커요."); 
+        else if( v4 < 50 ) console.log("50 보다 작아요.");  
+        else console.log("50 보다 같거나 크고 100보다 같거나 작아요.");
+        
+       
+        if ( v4 > 100 ) {
+            console.log("100보다 커요.")
+            console.log("100보다 커요.")
+            console.log("100보다 커요.")
+        } 
+        if( v4 < 50 ) {
+            console.log("50 보다 작아요.")
+        } 
+        if( !(v4 > 100) && !(v4 < 50) ) {
+            console.log("50 보다 같거나 크고 100보다 같거나 작아요.")
+        }
+
+
+    </script>
+</body>
+</html>
