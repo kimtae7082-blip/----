@@ -1,36 +1,62 @@
- body{
-        margin: 0;
-        overflow: hidden;
-    }
+/* =========================
+   기본 설정
+========================= */
 
-/*하늘*/
-.sky{
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+
+/* =========================
+   하늘
+========================= */
+
+.sky {
     width: 100vw;
     height: 100vh;
-    position: relative;
-    background: #10152f;
-    transition: background 1s;
 
+    position: relative;
+
+    background: #10152f;
+
+    transition: background 1s;
 }
-/*달*/
-.moon{
+
+
+/* =========================
+   달
+========================= */
+
+.moon {
     width: 150px;
     height: 150px;
+
     background: white;
+
     border-radius: 50%;
 
     position: absolute;
+
     top: 100px;
     right: 150px;
 
-    transition: 1s;
+    transition:
+        background 1s,
+        transform 1s;
 }
 
-/*별*/
-.star{
+
+/* =========================
+   별
+========================= */
+
+.star {
     width: 8px;
     height: 8px;
+
     background: white;
+
     border-radius: 50%;
 
     position: absolute;
@@ -38,37 +64,48 @@
     animation: twinkle 1s infinite alternate;
 }
 
-.star1{
+
+/* 별 위치 */
+
+.star1 {
     top: 100px;
     left: 20%;
 }
 
-.star2{
+.star2 {
     top: 200px;
     left: 40%;
+
     animation-delay: 0.3s;
 }
 
-.star3{
+.star3 {
     top: 150px;
     left: 70%;
+
     animation-delay: 0.6s;
 }
 
-.star4{
+.star4 {
     top: 300px;
     left: 80%;
+
     animation-delay: 0.9s;
 }
 
-.star5{
+.star5 {
     top: 250px;
     left: 15%;
+
     animation-delay: 0.5s;
 }
 
-/*버튼*/
-button{
+
+/* =========================
+   버튼
+========================= */
+
+button {
     position: absolute;
 
     bottom: 50px;
@@ -86,48 +123,35 @@ button{
     cursor: pointer;
 }
 
-/* 별똥별 */
+
+/* =========================
+   별똥별 본체
+========================= */
+
 .shooting-star {
     position: absolute;
 
     width: 8px;
     height: 8px;
 
-    top: 100px;
-    left: 70%;
-
     background: white;
+
     border-radius: 50%;
 
-    box-shadow: 0 0 10px white;
+    box-shadow:
+        0 0 8px white,
+        0 0 15px white;
 
     opacity: 0;
 
-    animation: shooting 4s linear infinite;
+    animation: shooting 5s linear infinite;
 }
 
-/*낮에는 별동별 숨기기*/
-.day .shooting-star{
-    display: none;
-}
 
-/* 낮이 되었을때 */
-.day{
-    background: skyblue;
-}
+/* =========================
+   별똥별 꼬리
+========================= */
 
-.day .moon{
-    background: #ffd84d;
-
-    transform: translateY(300px);
-}
-
-.day .star{
-    opacity: 0;
-    animation: none;
-}
-
-/* 별똥별 꼬리 */
 .shooting-star::after {
     content: "";
 
@@ -136,61 +160,184 @@ button{
     width: 120px;
     height: 3px;
 
-    /* 본체 뒤에 붙이기 */
-    top: 50%;
-    right: 5px;
+    /*
+        별똥별 점의 중심에서
+        오른쪽 위 방향으로 꼬리를 만듦
+    */
+    left: 3px;
+    top: 3px;
 
     background: linear-gradient(
         to right,
-        transparent,
-        white
+        white,
+        rgba(255, 255, 255, 0.5),
+        transparent
     );
 
-    transform: translateY(-50%) rotate(-45deg);
-
-    transform-origin: right center;
-
     border-radius: 10px;
+
+    transform: rotate(-45deg);
+
+    transform-origin: left center;
 }
 
-/* 별이 반짝이는 애니메이션*/
-@keyframes twinkle{
 
-    from{
+/* =========================
+   별똥별 1
+========================= */
+
+.shooting1 {
+    top: 180px;
+    left: 75%;
+
+    animation-delay: 0s;
+}
+
+
+/* =========================
+   별똥별 2
+========================= */
+
+.shooting2 {
+    top: 300px;
+    left: 90%;
+
+    animation-delay: 1.5s;
+}
+
+
+/* =========================
+   별똥별 3
+========================= */
+
+.shooting3 {
+    top: 100px;
+    left: 60%;
+
+    animation-delay: 3s;
+}
+
+
+/* =========================
+   별똥별 4
+========================= */
+
+.shooting4 {
+    top: 400px;
+    left: 80%;
+
+    animation-delay: 4.5s;
+}
+
+
+/* =========================
+   별똥별 5
+========================= */
+
+.shooting5 {
+    top: 250px;
+    left: 55%;
+
+    animation-delay: 6s;
+}
+
+
+/* =========================
+   낮 모드
+========================= */
+
+.day {
+    background: skyblue;
+}
+
+
+/* 낮의 달 */
+
+.day .moon {
+    background: #ffd84d;
+
+    transform: translateY(300px);
+}
+
+
+/* 낮에는 별 숨기기 */
+
+.day .star {
+    opacity: 0;
+
+    animation: none;
+}
+
+
+/* 낮에는 별똥별 숨기기 */
+
+.day .shooting-star {
+    display: none;
+}
+
+
+/* =========================
+   별 반짝임
+========================= */
+
+@keyframes twinkle {
+
+    from {
         opacity: 0.2;
+
         transform: scale(0.5);
     }
 
-    to{
+    to {
         opacity: 1;
+
         transform: scale(1.5);
     }
 }
-/* 별똥별 움직임*/
+
+
+/* =========================
+   별똥별 움직임
+========================= */
+
 @keyframes shooting {
 
+    /* 시작 */
     0% {
         transform: translate(0, 0);
+
         opacity: 0;
     }
 
+
+    /* 점 + 꼬리 동시에 등장 */
     10% {
-        transform: translate(-50px, 50px);
+        transform: translate(-40px, 40px);
+
         opacity: 1;
     }
 
+
+    /* 이동 */
     60% {
-        transform: translate(-350px, 350px);
+        transform: translate(-300px, 300px);
+
         opacity: 1;
     }
 
-    70% {
-        transform: translate(-400px, 400px);
+
+    /* 사라지기 시작 */
+    75% {
+        transform: translate(-380px, 380px);
+
         opacity: 0;
     }
 
+
+    /* 완전히 사라짐 */
     100% {
-        transform: translate(-400px, 400px);
+        transform: translate(-450px, 450px);
+
         opacity: 0;
     }
 }
